@@ -1,0 +1,23 @@
+For Install: composer require intervention/image
+===========================================
+
+After you have installed Intervention Image, open your Laravel config file config/app.php and add the following lines.
+
+In the $providers array add the service providers for this package.
+
+Intervention\Image\ImageServiceProvider::class
+
+Add the facade of this package to the $aliases array.
+
+'Image' => Intervention\Image\Facades\Image::class
+
+Use This Line In Home Controller: use Intervention\Image\ImageManagerStatic as Image;
+/// CMD ////
+$ php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravelRecent"
+=========================================
+
+// open and resize an image file
+$img = Image::make('public/foo.jpg')->resize(300, 200);
+
+
+$img->save('public/foo', 80, 'jpg');
